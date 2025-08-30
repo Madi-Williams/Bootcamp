@@ -42,7 +42,34 @@ for c in ['spades', 'clubs', 'hearts', 'diamonds']
 for i in range(2,15)]
 
 ### Your code here
+def find_flush(h):
+	first_card = h[0]['suit']
+	x = 1
+	s = 0
+	for x in range(5):
+		if h[x]['suit'] == first_card:
+			s += 1
+	if s == 5:
+		return(True)
+	else:
+		return(False)
+					
+def get_hand():
+	random_hand = []
+	for i in range (5):
+		card = rd.choice(deck)
+		random_hand.append(card)
+	return(random_hand)
 
+number_of_flushes = 0
+
+for x in range (50,000):
+	hand = get_hand()
+	flush = find_flush(hand)
+	if flush == True:
+		number_of_flushes += 1
+	
+print(number_of_flushes)
 
 
 
